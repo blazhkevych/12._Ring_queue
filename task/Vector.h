@@ -1,4 +1,5 @@
 ﻿#pragma once
+using std::cout;
 
 template <class T>
 class Vector

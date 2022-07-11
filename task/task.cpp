@@ -7,16 +7,31 @@
 изображены разные значки, и, если выпадает определенная
 комбинация, то игрок получает какой-то выигрыш.
 ################################################################################################
-		СТАТУС : Не готово.
-		2,43,50 начало
-
-	Дергаем рычаг
-
+		СТАТУС : Готово.
 ################################################################################################
 */
 #include <iostream>
+#include <windows.h>
+#include <conio.h>
+#include "Bandit.h"
 
 int main()
 {
+	srand(time(0));
+	Bandit bandit;
 
+	bandit.Print();
+	int userPressed{ 0 }; // Нажатая пользователем кнопка.
+	do
+	{
+		userPressed = _getch();
+
+		if (userPressed == 0 || userPressed == 0xE0)
+			userPressed = _getch();
+
+		if (userPressed == VK_ESCAPE) // "Escape" - выход из программы.
+			break;
+		if (userPressed == 32) // "Пробел".
+			bandit.Print();
+	} while (true);
 }
